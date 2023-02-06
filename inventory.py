@@ -3,15 +3,11 @@
 class Shoe:
 
     def __init__(self, country, code, product, cost, quantity):
-        pass
-        '''
-        In this function, you must initialise the following attributes:
-            ● country,
-            ● code,
-            ● product,
-            ● cost, and
-            ● quantity.
-        '''
+        self.counrty = country
+        self.code = code
+        self.products = product
+        self.cost = cost
+        self.quantity = quantity
     def get_cost(self):
         pass
         '''
