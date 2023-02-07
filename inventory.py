@@ -9,9 +9,9 @@ QUANTITY = 4
 class Shoe:
 
     def __init__(self, country, code, product, cost, quantity):
-        self.counrty = country
+        self.country = country
         self.code = code
-        self.products = product
+        self.product = product
         self.cost = cost
         self.quantity = quantity
     def get_cost(self):
