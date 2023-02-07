@@ -96,13 +96,15 @@ def capture_shoes():
         except ValueError:
             print("\nPlease enter a valid quantity\n")
 
+    #create a new Shoe object 
+    new_shoe = Shoe(new_shoe_country, new_shoe_code, new_shoe_name, new_shoe_cost, new_shoe_quantity)
 
-    '''
-    This function will allow a user to capture data
-    about a shoe and use this data to create a shoe object
-    and append this object inside the shoe list.
-    '''
+    #save new shoe to shoe_list
+    shoe_list.append(new_shoe)
 
+    #print confirmation
+    print("\n>>New shoe registered<<\n")
+    
 def view_all():
     pass
     '''
