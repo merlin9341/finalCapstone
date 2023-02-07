@@ -23,13 +23,7 @@ class Shoe:
         return self.quantity
 
     def __str__(self):
-        pass
-        '''
-        Add a code to returns a string representation of a class.
-
-        unsure what this means
-        '''
-
+        return f"{self.quantity}x {self.product} ({self.code}) from {self.country} - £{self.cost}"
 
 #=============Shoe list===========
 
