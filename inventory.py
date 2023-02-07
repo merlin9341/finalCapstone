@@ -26,13 +26,24 @@ class Shoe:
 
 
 #=============Shoe list===========
-'''
-The list will be used to store a list of objects of shoes.
-'''
+
+#A list used to store the shoe objects
 shoe_list = []
+
 #==========Functions outside the class==============
 def read_shoes_data():
-    pass
+    "Reads data from the file inventory.txt and saves it in the inventory list. If the file is not present the function prints an error message."
+    
+    #A try except block is used to check for the presence of the inventory file
+    try:
+        open("inventory.txt", "r")
+    except FileNotFoundError:
+        print("Sorry, inventory file not found, please create it.")
+        return
+
+    
+
+    
     '''
     This function will open the file inventory.txt
     and read the data from this file, then create a shoes object with this data
