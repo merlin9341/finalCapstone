@@ -9,16 +9,12 @@ class Shoe:
         self.cost = cost
         self.quantity = quantity
     def get_cost(self):
-        pass
-        '''
-        Add the code to return the cost of the shoe in this method.
-        '''
+        "returns the cost of the shoes"
+        return self.cost
 
     def get_quantity(self):
-        pass
-        '''
-        Add the code to return the quantity of the shoes.
-        '''
+        "returns the quantity of the shoes in stock"
+        return self.quantity
 
     def __str__(self):
         pass
