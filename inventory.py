@@ -1,3 +1,9 @@
+#======Define Constants======
+COUNTRY = 0
+CODE = 1
+PRODUCT = 2
+COST = 3
+QUANTITY = 4
 
 #========The beginning of the class==========
 class Shoe:
@@ -41,16 +47,31 @@ def read_shoes_data():
         print("Sorry, inventory file not found, please create it.")
         return
 
-    
+    #Open the file using with and as
+    with open("inventory.txt", "r") as inventory_file:
+        
+        #use readline to move the marker to after the title line
+        inventory_file.readline()
 
+        #start a loop to read through the remaining lines:
+        for line in inventory_file:
+            paramaters_list = line.strip("\n").split(",")
+            
+            #create a new instance of the shoe object with the atributes from the list
+            new_shoe = Shoe(
+                paramaters_list[COUNTRY], 
+                paramaters_list[CODE], 
+                paramaters_list[PRODUCT],
+                paramaters_list[COST],
+                paramaters_list[QUANTITY]
+                )
+            
+            #add the new show object to the list that holds the shoes
+            shoe_list.append(new_shoe)
     
-    '''
-    This function will open the file inventory.txt
-    and read the data from this file, then create a shoes object with this data
-    and append this object into the shoes list. One line in this file represents
-    data to create one object of shoes. You must use the try-except in this function
-    for error handling. Remember to skip the first line using your code.
-    '''
+    #Print confirmation message
+    print("\n--Data read from file--\n")
+
 def capture_shoes():
     pass
     '''
