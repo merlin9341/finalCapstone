@@ -20,6 +20,8 @@ class Shoe:
         pass
         '''
         Add a code to returns a string representation of a class.
+
+        unsure what this means
         '''
 
 
