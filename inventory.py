@@ -100,7 +100,24 @@ def highest_qty():
     '''
 
 #==========Main Menu=============
-'''
-Create a menu that executes each function above.
-This menu should be inside the while loop. Be creative!
-'''
+def main():
+    "Main menu loop"
+
+    main_menu = ""
+    while main_menu != "e":
+        main_menu = input('''
+---Main menu---
+
+Please select one of the following options:
+rd - read inventory data from file
+e - exit
+> ''')
+   
+        if main_menu == "rd":
+            read_shoes_data()
+        elif main_menu == "e":
+            print("\nGoodbye!")
+        else:
+            print("\nPlease enter a valid input.")
+
+main()
