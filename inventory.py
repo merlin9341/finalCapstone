@@ -67,7 +67,36 @@ def read_shoes_data():
     print("\n--Data read from file--\n")
 
 def capture_shoes():
-    pass
+    "Asks the user to enter the data for a show and then adds it to shoe_list as a Shoe object"
+    #asks user to import required data, verifying that results that must be a integer are valid using try execpt blocks
+    new_shoe_name = input("Product Name:\n> ")
+    while True:
+        try:
+            new_shoe_code = int(input("Product code:\n> "))
+
+            #ensure that code is 4 digits long
+            if len(str(new_shoe_code)) == 4:
+                break
+            else:
+                print("\nPlease enter a 4 digit code\n")
+
+        except ValueError:
+            print("\nPlease eneter a valid product code\n")
+    new_shoe_country = input("\nCountry of origin:\n> ")
+    while True:
+        try:
+            new_shoe_cost = int(input("Unit cost:\n> "))
+            break
+        except ValueError:
+            print("\nPlease enter a valid price\n")
+    while True:
+        try:
+            new_shoe_quantity = int(input("Quantity:\n> "))
+            break
+        except ValueError:
+            print("\nPlease enter a valid quantity\n")
+
+
     '''
     This function will allow a user to capture data
     about a shoe and use this data to create a shoe object
@@ -125,11 +154,14 @@ def main():
 
 Please select one of the following options:
 rd - read inventory data from file
+ns - input a new stock item
 e - exit
 > ''')
    
         if main_menu == "rd":
             read_shoes_data()
+        elif main_menu == "ns":
+            capture_shoes()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
