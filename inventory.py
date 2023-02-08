@@ -71,17 +71,14 @@ def capture_shoes():
     #asks user to import required data, verifying that results that must be a integer are valid using try execpt blocks
     new_shoe_name = input("Product Name:\n> ")
     while True:
-        try:
-            new_shoe_code = int(input("Product code:\n> "))
+        new_shoe_code = input("Product code:\n> ")
 
-            #ensure that code is 4 digits long
-            if len(str(new_shoe_code)) == 4:
-                break
-            else:
-                print("\nPlease enter a 4 digit code\n")
+        #ensure that code is 4 digits long
+        if len(new_shoe_code) == 8:
+            break
+        else:
+            print("\nPlease enter a 8 digit code\n")
 
-        except ValueError:
-            print("\nPlease eneter a valid product code\n")
     new_shoe_country = input("\nCountry of origin:\n> ")
     while True:
         try:
