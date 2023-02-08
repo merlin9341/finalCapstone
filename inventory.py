@@ -108,6 +108,11 @@ def capture_shoes():
     
 def view_all():
     "Prints the information held in the Shoe objects in shoe_list as a table"
+    #checks if there are no shoes to display, if so displays an error and exits to main menu
+    if shoe_list == []:
+        print("\n--There are no products to display--")
+        return
+
     #Begin a loop to interate over each Shoe object in the shoe list and add to a 2D list
     table_list = []
     for shoe in shoe_list:
