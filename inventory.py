@@ -159,6 +159,7 @@ def main():
 Please select one of the following options:
 rd - read inventory data from file
 ns - input a new stock item
+va - View all shoes
 e - exit
 > ''')
    
@@ -166,6 +167,8 @@ e - exit
             read_shoes_data()
         elif main_menu == "ns":
             capture_shoes()
+        elif main_menu == "va":
+            view_all()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
