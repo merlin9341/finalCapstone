@@ -1,3 +1,7 @@
+#======Import Module========
+
+from tabulate import tabulate
+
 #======Define Constants======
 COUNTRY = 0
 CODE = 1
@@ -23,7 +27,7 @@ class Shoe:
         return self.quantity
 
     def __str__(self):
-        return f"{self.quantity}x {self.product} ({self.code}) from {self.country} - £{self.cost}"
+        return f"{self.quantity}, {self.product}, {self.code}, {self.country}, {self.cost}"
 
 #=============Shoe list===========
 
@@ -103,13 +107,14 @@ def capture_shoes():
     print("\n>>New shoe registered<<\n")
     
 def view_all():
-    pass
-    '''
-    This function will iterate over the shoes list and
-    print the details of the shoes returned from the __str__
-    function. Optional: you can organise your data in a table format
-    by using Python’s tabulate module.
-    '''
+    "Prints the information held in the Shoe objects in shoe_list as a table"
+    #Begin a loop to interate over each Shoe object in the shoe list and add to a 2D list
+    table_list = []
+    for shoe in shoe_list:
+        table_list.append(str(shoe).split(", "))
+
+    #print to test
+    print(tabulate(table_list, ["Quantity", "Product", "Product Code", "Country", "Price"]))
 
 def re_stock():
     pass
