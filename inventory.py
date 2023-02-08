@@ -86,7 +86,7 @@ def view_all():
         table_list.append(str(shoe).split(", "))
 
     #print to test
-    print(table_list)
+    print(tabulate(table_list, ["Quantity", "Product", "Product Code", "Country", "Price"]))
 
 def re_stock():
     pass
