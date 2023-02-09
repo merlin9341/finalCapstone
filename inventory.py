@@ -28,6 +28,9 @@ class Shoe:
 
     def __str__(self):
         return f"{self.quantity}, {self.product}, {self.code}, {self.country}, {self.cost}"
+    
+    def __lt__(self, other):
+        return self.quantity < other.quantity
 
 #=============Shoe list===========
 
@@ -179,4 +182,8 @@ e - exit
         else:
             print("\nPlease enter a valid input.")
 
-main()
+#main()
+
+read_shoes_data()
+
+print(shoe_list[0]< shoe_list[1])
