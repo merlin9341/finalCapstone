@@ -193,11 +193,13 @@ def value_per_item():
     print(tabulate(value_table, ["Product", "Code", "Total Value"]))
 
 def highest_qty():
-    pass
-    '''
-    Write code to determine the product with the highest quantity and
-    print this shoe as being for sale.
-    '''
+    "Returns the deails of the shoe with the highest stock"
+
+    #uses max to find the largest object in the list based on the __lt__ defined for Shoe
+    highest_shoe_index = shoe_list.index(max(shoe_list))
+
+    #uses tabulate to display this shoe 
+    print("Shoe with highest stock:\n" + tabulate([str(shoe_list[highest_shoe_index]).split(", ")], ["Quantity", "Product", "Product Code", "Country", "Price"]))
 
 #==========Main Menu=============
 def main():
@@ -215,6 +217,7 @@ va - View all shoes
 rs - Restock shoe with lowest stock
 sc - Search for a shoe by code
 vi - Displays the total value per item in the stock list
+hs - Displays the shoe with the highest stock
 e - exit
 > ''')
    
@@ -230,6 +233,8 @@ e - exit
             search_shoe()
         elif main_menu == "vi":
             value_per_item()
+        elif main_menu == "hs":
+            highest_qty()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
