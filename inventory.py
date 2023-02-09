@@ -164,7 +164,7 @@ Would you like to restock the item?(Y/N) > ''').lower()
         else:
             print("\nPlease enter Y or N")
 
-def seach_shoe():
+def search_shoe():
     "allows the user to enter a code and display any shoes with matching codes from shoe_list"
     #Creates a list to hold codes
     codes_list = []
@@ -172,6 +172,20 @@ def seach_shoe():
     #for each shoe object the code is retrived using the get_code() method and it is added to the codes_list
     for shoe in shoe_list:
         codes_list.append(shoe.get_code())
+
+    #ask user to input code
+    search_code = input("\nSEARCH > ")
+
+    #chech if code is in list of codes
+    if search_code in codes_list:
+        
+        #fetch the index of the code from code list to use to find shoe obect in shoe list to display
+        found_shoe = shoe_list[codes_list.index(search_code)]
+
+        #Use tabulate to print out shoe with headings
+        print(tabulate([str(found_shoe).split(", ")], ["Quantity", "Product", "Product Code", "Country", "Price"]))
+    else:
+        print("\n--Sorry, code not found.--\n")
 
 def value_per_item():
     pass
@@ -202,6 +216,7 @@ rd - read inventory data from file
 ns - input a new stock item
 va - View all shoes
 rs - Restock shoe with lowest stock
+sc - Search for a shoe by code
 e - exit
 > ''')
    
@@ -213,6 +228,8 @@ e - exit
             view_all()
         elif main_menu == "rs":
             re_stock()
+        elif main_menu == "sc":
+            search_shoe()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
