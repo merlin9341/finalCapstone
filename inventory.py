@@ -167,11 +167,7 @@ Would you like to restock the item?(Y/N) > ''').lower()
 def search_shoe():
     "allows the user to enter a code and display any shoes with matching codes from shoe_list"
     #Creates a list to hold codes
-    codes_list = []
-
-    #for each shoe object the code is retrived using the get_code() method and it is added to the codes_list
-    for shoe in shoe_list:
-        codes_list.append(shoe.get_code())
+    codes_list = [shoe.get_code() for shoe in shoe_list]
 
     #ask user to input code
     search_code = input("\nSEARCH > ")
