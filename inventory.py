@@ -24,11 +24,14 @@ class Shoe:
 
     def get_quantity(self):
         "returns the quantity of the shoes in stock"
-        return self.quantity#
+        return self.quantity
 
     def get_product(self):
         "returns the name of the product"
         return self.product
+
+    def get_code(self):
+        return self.code
     
     def restock(self, restock_quantity):
         self.quantity += restock_quantity
