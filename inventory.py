@@ -17,14 +17,21 @@ class Shoe:
         self.code = code
         self.product = product
         self.cost = cost
-        self.quantity = quantity
+        self.quantity = int(quantity)
     def get_cost(self):
         "returns the cost of the shoes"
         return self.cost
 
     def get_quantity(self):
         "returns the quantity of the shoes in stock"
-        return self.quantity
+        return self.quantity#
+
+    def get_product(self):
+        "returns the name of the product"
+        return self.get_product
+    
+    def restock(self, restock_quantity):
+        self.quantity += restock_quantity
 
     def __str__(self):
         return f"{self.quantity}, {self.product}, {self.code}, {self.country}, {self.cost}"
