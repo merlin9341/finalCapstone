@@ -184,12 +184,12 @@ def search_shoe():
         print("\n--Sorry, code not found.--\n")
 
 def value_per_item():
-    pass
-    '''
-    This function will calculate the total value for each item.
-    Please keep the formula for value in mind: value = cost * quantity.
-    Print this information on the console for all the shoes.
-    '''
+    "displays a table of the total value of each item = quanity * cost"
+    #create a 2d list of each shoe name, product code and total value
+    value_table =[[shoe.get_product(), shoe.get_code(), int(shoe.get_quantity()) * int(shoe.get_cost())] for shoe in shoe_list]
+
+    #use tabulate to display data
+    print(tabulate(value_table, ["Product", "Code", "Total Value"]))
 
 def highest_qty():
     pass
@@ -213,6 +213,7 @@ ns - input a new stock item
 va - View all shoes
 rs - Restock shoe with lowest stock
 sc - Search for a shoe by code
+vi - Displays the total value per item in the stock list
 e - exit
 > ''')
    
@@ -226,6 +227,8 @@ e - exit
             re_stock()
         elif main_menu == "sc":
             search_shoe()
+        elif main_menu == "vi":
+            value_per_item()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
