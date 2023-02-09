@@ -28,7 +28,7 @@ class Shoe:
 
     def get_product(self):
         "returns the name of the product"
-        return self.get_product
+        return self.product
     
     def restock(self, restock_quantity):
         self.quantity += restock_quantity
@@ -132,13 +132,34 @@ def view_all():
     print(tabulate(table_list, ["Quantity", "Product", "Product Code", "Country", "Price"]))
 
 def re_stock():
-    pass
-    '''
-    This function will find the shoe object with the lowest quantity,
-    which is the shoes that need to be re-stocked. Ask the user if they
-    want to add this quantity of shoes and then update it.
-    This quantity should be updated on the file for this shoe.
-    '''
+    "returns the details of the shoe with the lowest qunatity and askes if the user would like to add more"
+
+    #uses min to find the smallest object in the list based on the __lt__ defined for Shoe
+    lowest_shoe_index = shoe_list.index(min(shoe_list))
+
+    #start a loop to ask the user what they would like to do with the item
+    while True:
+        restock_menu = input(f'''
+Shoe with the lowest stock:   {shoe_list[lowest_shoe_index].get_product()}
+stock remaining:              {shoe_list[lowest_shoe_index].get_quantity()}
+
+Would you like to restock the item?(Y/N) > ''').lower()
+        if restock_menu == "y":
+            while True:
+                try:
+                    restock_menu_quantity = int(input("How many items would you like to restock? > "))
+
+                    #use the restock method to update the value of the quantity for this instance of Shoe
+                    shoe_list[lowest_shoe_index].restock(restock_menu_quantity)
+                    print(f"\nThere are now {shoe_list[lowest_shoe_index].get_quantity()} of that shoe in stock")
+                    break
+                except ValueError:
+                    print("\nPlease enter a valid quantity\n")
+            break
+        elif restock_menu == "n":
+            break
+        else:
+            print("\nPlease enter Y or N")
 
 def seach_shoe():
     pass
@@ -175,6 +196,7 @@ Please select one of the following options:
 rd - read inventory data from file
 ns - input a new stock item
 va - View all shoes
+rs - Restock shoe with lowest stock
 e - exit
 > ''')
    
@@ -184,13 +206,11 @@ e - exit
             capture_shoes()
         elif main_menu == "va":
             view_all()
+        elif main_menu == "rs":
+            re_stock()
         elif main_menu == "e":
             print("\nGoodbye!")
         else:
             print("\nPlease enter a valid input.")
 
-#main()
-
-read_shoes_data()
-
-print(shoe_list[0]< shoe_list[1])
+main()
