@@ -9,6 +9,8 @@ PRODUCT = 2
 COST = 3
 QUANTITY = 4
 
+TABLE_HEADER = ["Quantity", "Product", "Product Code", "Country", "Price"]
+
 #========The beginning of the class==========
 class Shoe:
 
@@ -132,7 +134,7 @@ def view_all():
         table_list.append(str(shoe).split(", "))
 
     #print to test
-    print(tabulate(table_list, ["Quantity", "Product", "Product Code", "Country", "Price"]))
+    print(tabulate(table_list, TABLE_HEADER))
 
 def re_stock():
     "returns the details of the shoe with the lowest qunatity and askes if the user would like to add more"
@@ -180,7 +182,7 @@ def search_shoe():
         found_shoe = shoe_list[codes_list.index(search_code)]
 
         #Use tabulate to print out shoe with headings
-        print(tabulate([str(found_shoe).split(", ")], ["Quantity", "Product", "Product Code", "Country", "Price"]))
+        print(tabulate([str(found_shoe).split(", ")], TABLE_HEADER))
     else:
         print("\n--Sorry, code not found.--\n")
 
@@ -199,7 +201,7 @@ def highest_qty():
     highest_shoe_index = shoe_list.index(max(shoe_list))
 
     #uses tabulate to display this shoe 
-    print("Shoe with highest stock:\n" + tabulate([str(shoe_list[highest_shoe_index]).split(", ")], ["Quantity", "Product", "Product Code", "Country", "Price"]))
+    print("Shoe with highest stock:\n" + tabulate([str(shoe_list[highest_shoe_index]).split(", ")], TABLE_HEADER))
 
 #==========Main Menu=============
 def main():
